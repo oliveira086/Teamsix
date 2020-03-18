@@ -45,24 +45,17 @@
           </div>
         </div>
         <div class="row">
-          <div
-            class="col-md-4 text-center card d-flex justify-content-around p-5"
-          >
-            <img src="/imagens/undraw_dev_focus.svg" class="img-fluid" />
-            <h3>Desenvolvimento Web</h3>
-          </div>
-          <div
-            class="col-md-4 text-center card d-flex justify-content-around p-5"
-          >
-            <img src="/imagens/undraw_social_dashboard.svg" class="img-fluid" />
-            <h3>Marketing Digital</h3>
-          </div>
-          <div
-            class="col-md-4 text-center card d-flex justify-content-around p-5"
-          >
-            <img src="/imagens/undraw_mobile_apps.svg" class="img-fluid" />
-            <h3>Consultoria UX</h3>
-          </div>
+
+          <% for(let servico of listaServicos) { %>
+
+            <div class="col-md-4 text-center card d-flex justify-content-around p-5">
+              <img src="<%= servico.imagem %>" class="img-fluid" />
+              <h3><%= servico.nome %></h3>
+            </div>
+
+          <% } %>
+          
+          
         </div>
       </div>
     </section>
