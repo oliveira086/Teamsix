@@ -6,7 +6,16 @@ const homeController = {
       { nome: 'Consultoria UX', imagem: '/imagens/undraw_mobile_apps.svg'}
     ];
 
-    res.render('index', { title: 'Home', listaServicos: servicos });
+    let banners = [
+      '/imagens/banner_ux.jpg', 
+      '/imagens/full_stack_banner.jpg', 
+      '/imagens/banner.jpg'
+    ];
+
+    res.render(
+      'index', 
+      { title: 'Home', listaServicos: servicos, listaBanners: banners }
+    );
   }
 };
 
