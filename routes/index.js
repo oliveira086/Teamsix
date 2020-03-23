@@ -7,6 +7,7 @@ let homeController = require('../controllers/homeController');
 router.get('/', homeController.index);
 
 router.post('/contato', homeController.contato);
+
 router.post('/newsletter', homeController.newsletter);
 
 module.exports = router;

@@ -22,9 +22,9 @@ const homeController = {
     res.render('contato', {nome, email, mensagem, title: 'Contato'});
   },
   newsletter: (req, res) => {
-    let {nome, email} = req.body;
+    let {email} = req.body;
 
-    res.render('newsletter', {nome, email, title: 'Newsletter'});
+    res.render('newsletter', {email, title: 'Newsletter'});
   }
 };
 
