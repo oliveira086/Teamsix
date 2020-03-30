@@ -23,11 +23,9 @@ const homeController = {
     let {nome, email, mensagem} = req.body;
 
     let infoContato = { nome, email, mensagem };
-
     let infoContatoJSON = JSON.stringify(infoContato);
-
-    const db = path.join('db', 'contatos.json');
-
+    let datetime = new Date().getTime();
+    const db = path.join('db', `contato_${datetime}_${nome}.json`);
     fs.writeFileSync(db, infoContatoJSON);
 
     res.render('contato', {nome, email, mensagem, title: 'Contato'});
