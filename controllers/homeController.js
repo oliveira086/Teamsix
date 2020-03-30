@@ -1,3 +1,6 @@
+const path = require('path');
+const fs = require('fs');
+
 const homeController = {
   index: (req, res) => {
     let servicos = [
@@ -18,6 +21,14 @@ const homeController = {
   },
   contato: (req, res) => {
     let {nome, email, mensagem} = req.body;
+
+    let infoContato = { nome, email, mensagem };
+
+    let infoContatoJSON = JSON.stringify(infoContato);
+
+    const db = path.join('db', 'contatos.json');
+
+    fs.writeFileSync(db, infoContatoJSON);
 
     res.render('contato', {nome, email, mensagem, title: 'Contato'});
   },
