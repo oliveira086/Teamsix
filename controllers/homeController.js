@@ -23,20 +23,52 @@ const homeController = {
     let {nome, email, mensagem} = req.body;
 
     let infoContato = { nome, email, mensagem };
-    let infoContatoJSON = JSON.stringify(infoContato);
-    let datetime = new Date().getTime();
-    const db = path.join('db', `contato_${datetime}_${nome}.json`);
-    fs.writeFileSync(db, infoContatoJSON);
+
+    let caminhoContato = path.join('db', 'contatos.json')
+
+    if(fs.existsSync(caminhoContato)){
+
+      let listaContatos = fs.readFileSync(caminhoContato, { encoding: 'utf-8'})
+      listaContatos = JSON.parse(listaContatos)
+      listaContatos.contatos.push(infoContato)
+
+    }
+    else{
+      let listaContatos = {
+        contatos:[]
+      }
+    }
+
+    listaContatos = JSON.stringify(listaContatos)
+    fs.writeFileSync(caminhoContato, listaContatos)
+    
 
     res.render('contato', {nome, email, mensagem, title: 'Contato'});
   },
+
+
   newsletter: (req, res) => {
     let {email} = req.query;
-    
-    // POST - req.body
-    // GET - req.query
-    // GET /:email - req.params
 
+    const fileNewsletter = path.join('db', 'newsletter.json')
+
+    if(fs.existsSync(fileNewsletter)){
+      let listaNewsletter = fs.readFileSync(fileNewsletter, { encoding: 'utf-8'})
+      listaNewsletter = JSON.parse(listaNewsletter)
+      listaNewsletter.inscritos.push(email)
+      
+    }
+    else {
+      let listaNewsletter = {
+        inscritos: []
+      }
+      
+    }
+
+    listaNewsletter = JSON.stringify(listaNewsletter)
+    fs.writeFileSync(fileNewsletter, listaNewsletter)
+
+  
     res.render('newsletter', {email, title: 'Newsletter'});
   }
 };
