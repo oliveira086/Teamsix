@@ -7,9 +7,13 @@ const adminController = {
         let lerArquivo = fs.readFileSync(caminhoContato, {encoding: 'utf-8'})
         let listaContatoObjeto = JSON.parse(lerArquivo)
 
+        let caminhoNews = path.join('db', 'newsletter.json')
+        let lerArquivoNews = fs.readFileSync(caminhoNews, {encoding: 'utf-8'})
+        let listaNewsObjeto = JSON.parse(lerArquivoNews)
+
         res.render(
           'admin', 
-          { title: 'Admin', listaDeContato:listaContatoObjeto.contatos}
+          { title: 'Admin', listaDeContato:listaContatoObjeto, listaDeNews: listaNewsObjeto}
         );
       }
 }

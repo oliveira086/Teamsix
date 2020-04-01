@@ -7,74 +7,60 @@
         <h3>newsletter</h3>
 
         
-
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Email</th>
-                <th scope="col">Data</th>
-                <th scope="col">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-                <% for( let i=0; i< listaDeContato.length; i++){ console.log('teste') %>
-                    <tr>
-                        <th scope="row"> <%= listaDeContato.contatos %></th>
-                        <td>12/01/2001</td>
-                        <td>
-                            <div>
-                                <button class="btn btn-primary">Editar</button>
-                                <button class="btn btn-secondary">Excluir</button>
-                            </div>
-                        </td>
-                      </tr>
-                <% } %>
-            </tbody>
-          </table>
-
-          <h3>contato</h3>
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">Email</th>
-                <th scope="col">Data</th>
-                <th scope="col">Ações</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Testedeemail@gmail.com</th>
-                <td>...</td>
-                <td>
-                    <div>
-                        <button class="btn btn-primary">Editar</button>
-                        <button class="btn btn-secondary">Excluir</button>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">Testedeemail@gmail.com</th>
-                <td>...</td>
-                <td>
-                    <div>
-                        <button class="btn btn-primary">Editar</button>
-                        <button class="btn btn-secondary">Excluir</button>
-                    </div>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">Testedeemail@gmail.com</th>
-                <td>...</td>
-                <td>
-                    <div>
-                        <button class="btn btn-primary">Editar</button>
-                        <button class="btn btn-secondary">Excluir</button>
-                    </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
+        <main class="container">
+            <table class="table table-striped " >
+                <thead>
+                  <tr>
+                    <th scope="col">Email</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% for( let inscrito of listaDeNews.inscritos){ %>
+                        <tr>
+                            <th scope="row"><%= inscrito %></th>
+                            <td>12/01/2001</td>
+                            <td>
+                                <div>
+                                    <button class="btn btn-primary">Editar</button>
+                                    <button class="btn btn-secondary">Excluir</button>
+                                </div>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+              </table>
+    
+              <h3>contato</h3>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mensagem</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% for( let contato of listaDeContato.contatos){ %>
+                        <tr>
+                            <td><%= contato.nome %></td>
+                            <td><%= contato.email %></td>
+                            <td><%= contato.mensagem %></td>
+                            <td>
+                                <div>
+                                    <button class="btn btn-primary">Editar</button>
+                                    <button class="btn btn-secondary">Excluir</button>
+                                </div>
+                            </td>
+                            </tr>
+                    <% } %>
+                    
+                </tbody>
+              </table>
+        </main>
+        
     </div>
 </div>
 
