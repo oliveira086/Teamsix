@@ -11,6 +11,7 @@ router.post('/contato', homeController.contato);
 
 router.get('/newsletter', homeController.newsletter);
 
-router.get('/admin', adminController.index)
+router.get('/admin', adminController.index);
+
 
 module.exports = router;
