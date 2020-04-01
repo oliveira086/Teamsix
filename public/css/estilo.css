@@ -40,3 +40,15 @@ h3 {
     background-color: #FFA000;
     border-color: #FFA000;
 }
+
+.btn.btn-secondary {
+    background-color: #FF0000;
+    border-color: #FF0000;
+}
+
+.componente{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10vh;
+}
+
