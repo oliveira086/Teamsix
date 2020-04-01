@@ -68,7 +68,6 @@ const homeController = {
       listaNewsletter = {
         inscritos: [email]
       }
-      
     }
 
     listaNewsletter = JSON.stringify(listaNewsletter)
