@@ -1,0 +1,38 @@
+<%- include('./partials/header') %>
+
+<section id="cadastro">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6">
+          <form action="/cadastro" method="POST">
+            <h2>Cadastre-se</h2>
+
+            <% if (verificador == true) { %>
+              <h3>Usuário cadastrado com sucesso</h3>
+            <% } else { %>
+
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" name="nome" id="nome" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" name="email" id="email" class="form-control" />
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Senha</label>
+                <input type="password" name="senha" id="senha" class="form-control" />
+              </div>   
+            
+            <button class="btn btn-primary">Cadastrar</button>
+
+            <% } %>
+          </form>
+        </div>        
+      </div>
+    </div>
+  </section>
+
+<%- include('./partials/footer') %>
