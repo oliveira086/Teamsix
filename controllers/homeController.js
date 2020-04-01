@@ -40,7 +40,7 @@ const homeController = {
     }
     else{
       listaContatos = {
-        contatos:[]
+        contatos:[infoContato]
       }
     }
 
@@ -66,7 +66,7 @@ const homeController = {
     }
     else {
       listaNewsletter = {
-        inscritos: []
+        inscritos: [email]
       }
       
     }
