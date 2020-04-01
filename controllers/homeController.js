@@ -20,21 +20,26 @@ const homeController = {
     );
   },
   contato: (req, res) => {
+
     let {nome, email, mensagem} = req.body;
 
     let infoContato = { nome, email, mensagem };
 
     let caminhoContato = path.join('db', 'contatos.json')
 
+    let listaContatos = {}
+
     if(fs.existsSync(caminhoContato)){
 
-      let listaContatos = fs.readFileSync(caminhoContato, { encoding: 'utf-8'})
+      console.log(infoContato)
+
+      listaContatos = fs.readFileSync(caminhoContato, { encoding: 'utf-8'})
       listaContatos = JSON.parse(listaContatos)
       listaContatos.contatos.push(infoContato)
 
     }
     else{
-      let listaContatos = {
+      listaContatos = {
         contatos:[]
       }
     }
@@ -52,14 +57,15 @@ const homeController = {
 
     const fileNewsletter = path.join('db', 'newsletter.json')
 
+    let listaNewsletter = {}
     if(fs.existsSync(fileNewsletter)){
-      let listaNewsletter = fs.readFileSync(fileNewsletter, { encoding: 'utf-8'})
+      listaNewsletter = fs.readFileSync(fileNewsletter, { encoding: 'utf-8'})
       listaNewsletter = JSON.parse(listaNewsletter)
       listaNewsletter.inscritos.push(email)
       
     }
     else {
-      let listaNewsletter = {
+      listaNewsletter = {
         inscritos: []
       }
       
