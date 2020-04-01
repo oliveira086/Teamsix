@@ -17,9 +17,9 @@
               </tr>
             </thead>
             <tbody>
-                <% for( let i=0; i< listaDeContato.length; i++){ %>
+                <% for( let contato of listaDeContato.contatos){ %>
                     <tr>
-                        <th scope="row"><%= listaDeContato.contatos[i].email %></th>
+                        <th scope="row"><%= contato.email %></th>
                         <td>12/01/2001</td>
                         <td>
                             <div>
