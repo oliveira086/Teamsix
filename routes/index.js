@@ -18,4 +18,8 @@ router.get('/cadastro', usuarioController.index);
 
 router.post('/cadastro', usuarioController.cadastrar);
 
+router.get('/login', usuarioController.login);
+
+router.post('/login', usuarioController.autenticar);
+
 module.exports = router;

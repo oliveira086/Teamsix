@@ -10,10 +10,10 @@ const adminController = {
         let caminhoNews = path.join('db', 'newsletter.json')
         let lerArquivoNews = fs.readFileSync(caminhoNews, {encoding: 'utf-8'})
         let listaNewsObjeto = JSON.parse(lerArquivoNews)
-
+        let userSession = req.session.usuarioLogado;
         res.render(
           'admin', 
-          { title: 'Admin', listaDeContato:listaContatoObjeto, listaDeNews: listaNewsObjeto}
+          { title: 'Admin', listaDeContato:listaContatoObjeto, listaDeNews: listaNewsObjeto, userSession}
         );
       }
 }
